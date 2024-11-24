@@ -51,3 +51,4 @@ AML(자금세탁방지) 시스템인 **WLF 프로젝트**는 자금세탁 행위
 ---
 
 ## 흐름도
+![flow](https://github.com/user-attachments/assets/73717071-8387-44c5-b6d1-d9c0b8511608)
