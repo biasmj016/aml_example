@@ -2,12 +2,12 @@ package com.aml.wlf.algorithms.domain
 
 object HammingDistanceAlgorithm {
     fun calculateSimilarity(base: String, comparison: String): Double {
-        val minLength = minOf(base.length, comparison.length)
-        val maxLength = maxOf(base.length, comparison.length)
-        val result = (0 until minLength).count { base[it] == comparison[it] }
+        if (base.isBlank() && comparison.isBlank()) return 0.0
+        if (base.length != comparison.length) return 0.0
 
-        val distance = maxLength - minLength + result
-        return toPercentage(distance.toDouble() / maxLength)
+        val differingCharacters = (0 until base.length).count { base[it] != comparison[it] }
+        val similarity = base.length - differingCharacters
+        return toPercentage(similarity.toDouble() / base.length)
     }
 
     private fun toPercentage(value: Double): Double {

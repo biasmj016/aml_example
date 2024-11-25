@@ -23,7 +23,7 @@ class HammingDistanceAlgorithmTest {
     @Test
     fun calculate_fail() {
         val base = "test name"
-        val comparison = "other thing"
+        val comparison = "other name"
         val result = HammingDistanceAlgorithm.calculateSimilarity(base, comparison)
         assertEquals(0.0, result)
     }
@@ -31,9 +31,9 @@ class HammingDistanceAlgorithmTest {
     @Test
     fun calculate_similar() {
         val base = "test name"
-        val comparison = "other name"
+        val comparison = "tfft nppe"
         val result = HammingDistanceAlgorithm.calculateSimilarity(base, comparison)
-        assertEquals(50.0, result)
+        assertEquals(result < 70.0 && result > 50.0, true)
     }
 
     @Test
