@@ -1,5 +1,6 @@
-package com.aml.wlf.similarity.application.port.`in`
+package com.aml.wlf.algorithms.application.port.`in`
 
+import com.aml.wlf.algorithms.application.port.`in`.usecase.NameSimilarity
 import com.aml.wlf.algorithms.domain.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

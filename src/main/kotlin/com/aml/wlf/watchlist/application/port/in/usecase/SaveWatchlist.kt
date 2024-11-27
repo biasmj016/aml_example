@@ -1,4 +1,4 @@
-package com.aml.wlf.watchlist.application.port.`in`
+package com.aml.wlf.watchlist.application.port.`in`.usecase
 
 import com.aml.wlf.watchlist.application.port.out.WatchlistRepository
 import com.aml.wlf.watchlist.domain.Watchlist

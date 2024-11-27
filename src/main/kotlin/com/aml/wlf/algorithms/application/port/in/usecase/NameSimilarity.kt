@@ -1,4 +1,4 @@
-package com.aml.wlf.similarity.application.port.`in`
+package com.aml.wlf.algorithms.application.port.`in`.usecase
 
 import com.aml.wlf.algorithms.domain.*
 import org.springframework.stereotype.Service
@@ -8,7 +8,6 @@ interface NameSimilarity {
 
     @Service
     class NameSimilarityUsecase : NameSimilarity {
-
         private val similarityStrategies = mapOf(
             "CosineSimilarity" to CosineSimilarityAlgorithm::calculateSimilarity,
             "DiceCoefficient" to DiceCoefficientAlgorithm::calculateSimilarity,

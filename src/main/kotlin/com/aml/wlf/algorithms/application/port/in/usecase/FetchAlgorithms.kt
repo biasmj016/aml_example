@@ -1,4 +1,4 @@
-package com.aml.wlf.algorithms.application.port.`in`
+package com.aml.wlf.algorithms.application.port.`in`.usecase
 
 import com.aml.wlf.algorithms.application.port.out.SimilarityAlgorithmRepository
 import com.aml.wlf.algorithms.domain.Algorithm
