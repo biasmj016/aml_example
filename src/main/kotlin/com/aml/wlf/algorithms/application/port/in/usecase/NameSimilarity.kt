@@ -7,14 +7,16 @@ interface NameSimilarity {
     fun calculate(base: String, comparison: String, algorithms: List<Algorithm>): Double
 
     @Service
-    class NameSimilarityUsecase : NameSimilarity {
-        private val similarityStrategies = mapOf(
+    class NameSimilarityUsecase(
+        private val similarityStrategies: Map<String, (String, String) -> Double> = mapOf(
             "CosineSimilarity" to CosineSimilarityAlgorithm::calculateSimilarity,
             "DiceCoefficient" to DiceCoefficientAlgorithm::calculateSimilarity,
             "HammingDistance" to HammingDistanceAlgorithm::calculateSimilarity,
             "JaccardSimilarity" to JaccardSimilarityAlgorithm::calculateSimilarity,
             "JaroWinklerDistance" to JaroWinklerDistanceAlgorithm::calculateSimilarity
         )
+    ) : NameSimilarity {
+
 
         override fun calculate(base: String, comparison: String, algorithms: List<Algorithm>): Double {
             val totalWeight = algorithms.sumOf { it.weight }
