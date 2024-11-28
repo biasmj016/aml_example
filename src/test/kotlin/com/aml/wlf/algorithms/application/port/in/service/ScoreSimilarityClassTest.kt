@@ -3,7 +3,8 @@ package com.aml.wlf.algorithms.application.port.`in`.service
 import com.aml.wlf.algorithms.application.port.`in`.usecase.NameSimilarity
 import com.aml.wlf.watchlist.application.port.`in`.usecase.FetchWatchlist
 import com.aml.wlf.watchlist.domain.Watchlist
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.assertThrows
 import org.mockito.Mockito
 import java.time.LocalDate
 import kotlin.test.Test
@@ -14,7 +15,7 @@ class ScoreSimilarityClassTest {
     private val nameSimilarityUsecase = Mockito.mock(NameSimilarity.NameSimilarityUsecase::class.java)
 
     private val scoreSimilarityClass =
-        ScoreSimilarityClass(fetchWatchlistUsecase, nameSimilarityUsecase)
+        ScoreSimilarity.ScoreSimilarityClass(fetchWatchlistUsecase, nameSimilarityUsecase)
 
     @Test
     fun findMostSimilarName_low() {
@@ -24,8 +25,8 @@ class ScoreSimilarityClassTest {
         Mockito.`when`(fetchWatchlistUsecase.fetch("BGD", LocalDate.of(1990, 1, 1))).thenReturn(watchlist)
         Mockito.`when`(nameSimilarityUsecase.calculate(baseName, "Jane Doe")).thenReturn(0.3)
 
-        val result = scoreSimilarityClass.findMostSimilarName(baseName, "BGD", LocalDate.of(1990, 1, 1))
-        assertEquals("Jane Doe" to 0.3, result)
+        val result = scoreSimilarityClass.execute(baseName, "BGD", LocalDate.of(1990, 1, 1))
+        assertFalse(result.isSamePerson)
     }
 
     @Test
@@ -36,7 +37,14 @@ class ScoreSimilarityClassTest {
         Mockito.`when`(fetchWatchlistUsecase.fetch("BGD", LocalDate.of(1990, 1, 1))).thenReturn(watchlist)
         Mockito.`when`(nameSimilarityUsecase.calculate(baseName, "John Doe")).thenReturn(1.0)
 
-        val result = scoreSimilarityClass.findMostSimilarName(baseName, "BGD", LocalDate.of(1990, 1, 1))
-        assertEquals("John Doe" to 1.0, result)
+        val result = scoreSimilarityClass.execute(baseName, "BGD", LocalDate.of(1990, 1, 1))
+        assertTrue(result.isSamePerson)
+    }
+
+    @Test
+    fun validate_exception() {
+        assertThrows<IllegalArgumentException> {
+            scoreSimilarityClass.execute("test", "", LocalDate.of(1990, 1, 1))
+        }
     }
 }

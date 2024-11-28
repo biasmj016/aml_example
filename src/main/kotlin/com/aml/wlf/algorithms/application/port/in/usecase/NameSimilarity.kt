@@ -1,7 +1,9 @@
 package com.aml.wlf.algorithms.application.port.`in`.usecase
 
 import com.aml.wlf.algorithms.domain.*
+import com.aml.wlf.algorithms.domain.algorithm.*
 import org.springframework.stereotype.Service
+
 interface NameSimilarity {
     fun calculate(base: String, comparison: String): Double
 
