@@ -2,8 +2,8 @@ package com.aml.wlf.algorithms.domain
 
 import kotlin.math.round
 
-object JaccardSimilarityAlgorithm {
-    fun calculateSimilarity(base: String, comparison: String): Double {
+object JaccardSimilarityAlgorithm : SimilarityAlgorithm {
+    override fun calculateSimilarity(base: String, comparison: String): Double {
         if (base.isBlank() && comparison.isBlank()) return 0.0
 
         val basePairs = letterPairs(base.lowercase())

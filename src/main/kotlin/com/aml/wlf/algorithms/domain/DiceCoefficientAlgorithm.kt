@@ -2,8 +2,8 @@ package com.aml.wlf.algorithms.domain
 
 import kotlin.math.round
 
-object DiceCoefficientAlgorithm {
-    fun calculateSimilarity(base: String, comparison: String): Double {
+object DiceCoefficientAlgorithm : SimilarityAlgorithm {
+    override fun calculateSimilarity(base: String, comparison: String): Double {
         val baseMap = toMap(base)
         val comparisonMap = toMap(comparison)
         val totalSize = baseMap.size + comparisonMap.size

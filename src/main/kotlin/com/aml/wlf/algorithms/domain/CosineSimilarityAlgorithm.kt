@@ -3,8 +3,8 @@ package com.aml.wlf.algorithms.domain
 import kotlin.math.sqrt
 import kotlin.math.round
 
-object CosineSimilarityAlgorithm {
-    fun calculateSimilarity(base: String, comparison: String): Double {
+object CosineSimilarityAlgorithm : SimilarityAlgorithm {
+    override fun calculateSimilarity(base: String, comparison: String): Double {
         val baseVector = textToVector(base)
         val comparisonVector = textToVector(comparison)
 

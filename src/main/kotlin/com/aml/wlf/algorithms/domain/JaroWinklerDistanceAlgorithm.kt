@@ -1,8 +1,8 @@
 package com.aml.wlf.algorithms.domain
 
-object JaroWinklerDistanceAlgorithm {
+object JaroWinklerDistanceAlgorithm : SimilarityAlgorithm {
 
-    fun calculateSimilarity(base: String, comparison: String): Double {
+    override fun calculateSimilarity(base: String, comparison: String): Double {
         val jaroDistance = jaroDistance(base, comparison)
         val prefixLength = commonPrefix(base, comparison)
         val jaroWinklerDistance = jaroDistance + (0.1 * prefixLength * (1 - jaroDistance))

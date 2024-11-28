@@ -1,7 +1,7 @@
 package com.aml.wlf.algorithms.domain
 
-object HammingDistanceAlgorithm {
-    fun calculateSimilarity(base: String, comparison: String): Double {
+object HammingDistanceAlgorithm : SimilarityAlgorithm {
+    override fun calculateSimilarity(base: String, comparison: String): Double {
         if (base.isBlank() && comparison.isBlank()) return 0.0
         if (base.length != comparison.length) return 0.0
 
