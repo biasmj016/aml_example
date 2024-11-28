@@ -16,15 +16,8 @@ class NameSimilarityTest {
     fun calculate_low() {
         val base = "test name"
         val comparison = "abcd efgh"
-        val algorithms = listOf(
-            Algorithm(1L, "CosineSimilarity", 0.3),
-            Algorithm(2L, "DiceCoefficient", 0.2),
-            Algorithm(3L, "HammingDistance", 0.1),
-            Algorithm(4L, "JaccardSimilarity", 0.2),
-            Algorithm(5L, "JaroWinklerDistance", 0.2)
-        )
 
-        val result = usecase.calculate(base, comparison, algorithms)
+        val result = usecase.calculate(base, comparison)
         System.out.println(result)
 
         val expectedSimilarity = (
@@ -43,15 +36,8 @@ class NameSimilarityTest {
     fun calculate_high() {
         val base = "example"
         val comparison = "example"
-        val algorithms = listOf(
-            Algorithm(1L, "CosineSimilarity", 0.3),
-            Algorithm(2L, "DiceCoefficient", 0.2),
-            Algorithm(3L, "HammingDistance", 0.1),
-            Algorithm(4L, "JaccardSimilarity", 0.2),
-            Algorithm(5L, "JaroWinklerDistance", 0.2)
-        )
 
-        val result = usecase.calculate(base, comparison, algorithms)
+        val result = usecase.calculate(base, comparison)
         System.out.println(result)
 
         val expectedSimilarity = (
