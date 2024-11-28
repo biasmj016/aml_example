@@ -1,5 +1,6 @@
 package com.aml.wlf.algorithms.domain
 
+import com.aml.wlf.algorithms.domain.algorithm.HammingDistanceAlgorithm
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

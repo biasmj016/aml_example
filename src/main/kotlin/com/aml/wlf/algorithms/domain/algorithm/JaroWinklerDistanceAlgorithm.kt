@@ -1,4 +1,6 @@
-package com.aml.wlf.algorithms.domain
+package com.aml.wlf.algorithms.domain.algorithm
+
+import com.aml.wlf.algorithms.domain.SimilarityAlgorithm
 
 object JaroWinklerDistanceAlgorithm : SimilarityAlgorithm {
 

@@ -1,5 +1,6 @@
 package com.aml.wlf.algorithms.domain
 
+import com.aml.wlf.algorithms.domain.algorithm.JaccardSimilarityAlgorithm
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
