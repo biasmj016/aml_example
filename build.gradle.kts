@@ -25,6 +25,7 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("org.projectlombok:lombok")
     implementation("org.springframework.kafka:spring-kafka")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
     annotationProcessor("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
