@@ -1,13 +1,13 @@
 package com.aml.wlf.algorithms.application.port.`in`.usecase
 
-import com.aml.wlf.algorithms.domain.*
+import com.aml.wlf.algorithms.domain.SimilarityType
 import com.aml.wlf.algorithms.domain.algorithm.*
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 
 interface NameSimilarity {
     fun calculate(base: String, comparison: String): Double
 
-    @Service
+    @Component
     class NameSimilarityUsecase(
         private val similarityStrategies: Map<SimilarityType, (String, String) -> Double> = mapOf(
             SimilarityType.COSINE_SIMILARITY to CosineSimilarityAlgorithm::calculateSimilarity,

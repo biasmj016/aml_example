@@ -2,14 +2,12 @@ package com.aml.wlf.watchlist.application.port.`in`.usecase
 
 import com.aml.wlf.watchlist.application.port.out.WatchlistRepository
 import com.aml.wlf.watchlist.domain.Watchlist
-import jakarta.transaction.Transactional
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 
 interface SaveWatchlist {
     fun save(watchlist: Watchlist): Watchlist
 
-    @Service
-    @Transactional
+    @Component
     class SaveWatchlistUsecase(
         private val repository: WatchlistRepository
     ) : SaveWatchlist {
