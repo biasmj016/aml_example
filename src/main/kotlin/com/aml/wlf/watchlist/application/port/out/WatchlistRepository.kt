@@ -17,9 +17,10 @@ interface WatchlistRepository {
     ) : WatchlistRepository {
 
         @Transactional(readOnly = true)
-        override fun findAll(countryCode:String, birthDate: LocalDate): List<Watchlist> {
+        override fun findAll(countryCode: String, birthDate: LocalDate): List<Watchlist> {
             return jpaRepository.findAllByCountryCodeAndBirthDate(countryCode, birthDate)
                 .map { it.toDomain() }
+                .ifEmpty { throw IllegalArgumentException("No matching entries found in the watchlist.") }
         }
 
         @Transactional

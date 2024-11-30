@@ -17,13 +17,7 @@ interface ScoreSimilarity {
     ) : ScoreSimilarity {
 
         override fun execute(request: SimilarityRequest): SimilarityResponse {
-            val watchlist = fetchWatchlistUsecase.fetch(request.countryCode, request.birthDate)
-
-            if (watchlist.isEmpty()) {
-                throw IllegalArgumentException("No matching entries found in the watchlist.")
-            }
-
-            val mostSimilar = watchlist
+            val mostSimilar = fetchWatchlistUsecase.fetch(request.countryCode, request.birthDate)
                 .map { it.name to nameSimilarityUsecase.calculate(request.baseName, it.name) }
                 .maxByOrNull { it.second } ?: Pair(null, 0.0)
 
