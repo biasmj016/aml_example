@@ -2,7 +2,7 @@ package com.aml.wlf.algorithms.infrastructure.`in`.web.request
 
 import java.time.LocalDate
 
-data class SimilarityTransactionHttpRequest(
+data class WLFHttpRequest(
     val baseName: String,
     val countryCode: String,
     val birthDate: LocalDate

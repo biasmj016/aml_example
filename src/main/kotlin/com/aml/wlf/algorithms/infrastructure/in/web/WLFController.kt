@@ -1,7 +1,7 @@
 package com.aml.wlf.algorithms.infrastructure.`in`.web
 
 import com.aml.wlf.algorithms.application.port.`in`.service.SuspiciousTransactionFilter
-import com.aml.wlf.algorithms.infrastructure.`in`.web.request.SimilarityTransactionHttpRequest
+import com.aml.wlf.algorithms.infrastructure.`in`.web.request.WLFHttpRequest
 import com.aml.wlf.global.response.ApiResponse
 import com.aml.wlf.global.response.ApiResponse.Companion.success
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,7 +14,7 @@ class WLFController(
 ) {
 
     @PostMapping("/api/transactions/wlf")
-    fun wlf(@RequestBody request: SimilarityTransactionHttpRequest): ApiResponse {
+    fun wlf(@RequestBody request: WLFHttpRequest): ApiResponse {
         suspiciousTransactionFilterService.execute(request.baseName, request.countryCode, request.birthDate)
         return success("Request completed. The item is being filtered.")
     }
