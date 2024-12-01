@@ -34,7 +34,7 @@ class KafkaNoticeConsumerTest {
         val message = SimpleMailMessage()
         message.setTo(mailAddress)
         message.subject = "Suspicious Transaction Alert"
-        message.text = "A suspicious transaction has been detected: $transaction"
+        message.text = "A suspicious transaction has been detected: \n$transaction"
 
         Mockito.verify(mailSender).send(message)
     }
