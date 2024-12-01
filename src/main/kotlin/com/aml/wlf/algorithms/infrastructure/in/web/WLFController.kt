@@ -14,7 +14,7 @@ class WLFController(
 ) {
 
     @PostMapping("/api/transactions/wlf")
-    fun wlf(@RequestBody request: WLFHttpRequest): ApiResponse {
+    suspend fun wlf(@RequestBody request: WLFHttpRequest): ApiResponse {
         suspiciousTransactionFilterService.execute(request.baseName, request.countryCode, request.birthDate)
         return success("Request completed. The item is being filtered.")
     }
